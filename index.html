@@ -1,0 +1,1168 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Plan Nutrition Mathulan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+
+<style>
+/* ── TOKEN SYSTEM ── */
+:root {
+  /* Layout: full-width header, 3-tab content panel, card grid */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface2: #f0f2f6;
+  --fg: #1a1d23;
+  --fg2: #5a6075;
+  --border: #e2e6ee;
+  --accent: #2d7a45;       /* vert nutrition */
+  --accent2: #e8f5ec;
+  --accent-text: #ffffff;
+  --sport-bg: #dbeafe;
+  --sport-fg: #1d4ed8;
+  --repos-bg: #fef3c7;
+  --repos-fg: #92400e;
+  --cheat-bg: #fce7f3;
+  --cheat-fg: #9d174d;
+  --tag-bg: #e0f2fe;
+  --tag-fg: #0369a1;
+  --check-done: #2d7a45;
+  --shadow: 0 1px 4px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #13151a;
+    --surface: #1e2028;
+    --surface2: #252830;
+    --fg: #e8eaf0;
+    --fg2: #8a8fa8;
+    --border: #2e3140;
+    --accent: #3d9e58;
+    --accent2: #1a2e20;
+    --accent-text: #ffffff;
+    --sport-bg: #1e3a5f;
+    --sport-fg: #93c5fd;
+    --repos-bg: #2d2009;
+    --repos-fg: #fbbf24;
+    --cheat-bg: #2d1520;
+    --cheat-fg: #f9a8d4;
+    --tag-bg: #0c2d44;
+    --tag-fg: #7dd3fc;
+    --check-done: #3d9e58;
+    --shadow: 0 1px 4px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #13151a;
+  --surface: #1e2028;
+  --surface2: #252830;
+  --fg: #e8eaf0;
+  --fg2: #8a8fa8;
+  --border: #2e3140;
+  --accent: #3d9e58;
+  --accent2: #1a2e20;
+  --accent-text: #ffffff;
+  --sport-bg: #1e3a5f;
+  --sport-fg: #93c5fd;
+  --repos-bg: #2d2009;
+  --repos-fg: #fbbf24;
+  --cheat-bg: #2d1520;
+  --cheat-fg: #f9a8d4;
+  --tag-bg: #0c2d44;
+  --tag-fg: #7dd3fc;
+  --check-done: #3d9e58;
+  --shadow: 0 1px 4px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.2);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+
+/* ── HEADER ── */
+.app-header {
+  background: var(--accent);
+  color: white;
+  padding-block: 16px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.header-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.2rem; }
+.header-sub { font-size: .78rem; opacity: .85; margin-top: 2px; }
+
+.lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,.2);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,.75);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: .04em;
+  transition: background .15s, color .15s;
+  font-family: inherit;
+}
+.lang-btn.active {
+  background: white;
+  color: var(--accent);
+}
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow-x: auto;
+  gap: 0;
+}
+.tab-btn {
+  border: none;
+  background: none;
+  color: var(--fg2);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 13px 18px 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color .15s, border-color .15s;
+  font-family: inherit;
+  letter-spacing: .02em;
+}
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ── CONTENT ── */
+.tab-content { display: none; padding: 20px max(16px, env(safe-area-inset-left, 0px)); }
+.tab-content.active { display: block; }
+
+/* ── WEEK GRID ── */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.day-card {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.day-header {
+  padding: 12px 14px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.day-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; text-wrap: balance; }
+.day-badges { display: flex; gap: 6px; align-items: center; }
+.badge {
+  font-size: .68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: .03em;
+}
+.badge-sport { background: var(--sport-bg); color: var(--sport-fg); }
+.badge-repos { background: var(--repos-bg); color: var(--repos-fg); }
+.badge-kcal { background: var(--surface2); color: var(--fg2); font-weight: 600; }
+.day-meals { padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+.meal-row { display: flex; gap: 8px; align-items: flex-start; }
+.meal-slot {
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--fg2);
+  min-width: 38px;
+  padding-top: 2px;
+  letter-spacing: .04em;
+}
+.meal-detail { flex: 1; min-width: 0; }
+.meal-name { font-weight: 600; font-size: .83rem; color: var(--fg); }
+.meal-kcal { font-size: .72rem; color: var(--fg2); }
+.meal-tag {
+  display: inline-block;
+  font-size: .63rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  margin-left: 5px;
+  letter-spacing: .03em;
+}
+.meal-tag.cheat { background: var(--cheat-bg); color: var(--cheat-fg); }
+
+/* ── RECIPES ── */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.recipe-card {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.recipe-header {
+  background: var(--accent2);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.recipe-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem; color: var(--accent); text-wrap: balance; }
+.recipe-meta { font-size: .72rem; color: var(--fg2); margin-top: 2px; }
+.recipe-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+.recipe-section-title {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--fg2);
+  margin-bottom: 5px;
+}
+.ingr-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.ingr-list li { font-size: .82rem; color: var(--fg); display: flex; align-items: baseline; gap: 6px; }
+.ingr-list li::before { content: '•'; color: var(--accent); font-size: .7rem; flex-shrink: 0; }
+.steps-list { list-style: none; margin: 0; padding: 0; counter-reset: step; display: flex; flex-direction: column; gap: 6px; }
+.steps-list li {
+  font-size: .82rem;
+  color: var(--fg);
+  display: flex;
+  gap: 8px;
+  counter-increment: step;
+}
+.steps-list li::before {
+  content: counter(step);
+  background: var(--accent);
+  color: white;
+  font-size: .65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── SHOPPING LIST ── */
+.shopping-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.progress-bar-wrap { flex: 1; max-width: 260px; }
+.progress-label { font-size: .72rem; color: var(--fg2); margin-bottom: 4px; }
+.progress-bar {
+  height: 7px;
+  background: var(--surface2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+.reset-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--fg2);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+.reset-btn:hover { background: var(--surface2); }
+
+.shop-categories { display: flex; flex-direction: column; gap: 10px; }
+.shop-category {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.shop-cat-header {
+  padding: 10px 14px;
+  background: var(--surface2);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--fg2);
+  border-bottom: 1px solid var(--border);
+}
+.shop-items { padding: 6px 0; }
+.shop-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background .1s;
+}
+.shop-item:hover { background: var(--surface2); }
+.shop-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--check-done);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.shop-item-text { flex: 1; font-size: .85rem; color: var(--fg); transition: color .2s; }
+.shop-item-qty { font-size: .75rem; color: var(--fg2); flex-shrink: 0; }
+.shop-item.checked .shop-item-text {
+  text-decoration: line-through;
+  color: var(--fg2);
+}
+</style>
+
+<div class="app-header">
+  <div>
+    <div class="header-title" id="h-title">🥗 Plan Nutrition</div>
+    <div class="header-sub" id="h-sub">Semaine — Mathulan · Objectif 85 kg</div>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('ta')" id="btn-ta">த</button>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('menus',this)" id="tab-menus">📅 Menus semaine</button>
+  <button class="tab-btn" onclick="showTab('recettes',this)" id="tab-recettes">👨‍🍳 Recettes soir</button>
+  <button class="tab-btn" onclick="showTab('courses',this)" id="tab-courses">🛒 Courses</button>
+</div>
+
+<!-- ═══ TAB 1: MENUS ═══ -->
+<div class="tab-content active" id="tab-menus-content">
+  <div class="week-grid">
+
+    <!-- LUNDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-lundi">Lundi</div>
+        <div class="day-badges">
+          <span class="badge badge-sport" id="b-sport-1">🏋️ Sport</span>
+          <span class="badge badge-kcal">~2000 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot" id="m-matin">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="belvita-banane-1">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot" id="m-midi">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="tacos-restes-dim">Tacos poulet + pommes dauphine <span class="meal-tag" id="tag-restes-dim">Restes dim.</span></div>
+            <div class="meal-kcal">~534 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot" id="m-snack">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="yaourt-snack">Velouté Danone fruits</div>
+            <div class="meal-kcal">~110 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot" id="m-soir">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="pates-poulet-soir">Pâtes poulet crème <span class="meal-tag" id="tag-prep-mar">→ Mardi midi</span></div>
+            <div class="meal-kcal">~560 kcal · Prépa 20 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-mardi">Mardi</div>
+        <div class="day-badges">
+          <span class="badge badge-repos" id="b-repos-2">😴 Repos</span>
+          <span class="badge badge-kcal">~1800 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="pates-restes-lun">Pâtes poulet crème <span class="meal-tag" id="tag-restes-lun">Restes lun.</span></div>
+            <div class="meal-kcal">~560 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name">Velouté Danone fruits</div>
+            <div class="meal-kcal">~110 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="poulet-daup-mar">Poulet + pommes dauphine <span class="meal-tag" id="tag-prep-mer">→ Mer. midi</span></div>
+            <div class="meal-kcal">~560 kcal · Prépa 20 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MERCREDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-mercredi">Mercredi</div>
+        <div class="day-badges">
+          <span class="badge badge-sport" id="b-sport-3">🏋️ Sport</span>
+          <span class="badge badge-kcal">~2000 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="poulet-daup-restes-mar">Poulet + pommes dauphine <span class="meal-tag" id="tag-restes-mar">Restes mar.</span></div>
+            <div class="meal-kcal">~560 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="yaourt-banane-snack">Velouté Danone fruits + banane</div>
+            <div class="meal-kcal">~190 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="tacos-mer-soir">Tacos riz poulet <span class="meal-tag" id="tag-prep-jeu">→ Jeu. midi</span></div>
+            <div class="meal-kcal">~600 kcal · Prépa 25 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JEUDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-jeudi">Jeudi</div>
+        <div class="day-badges">
+          <span class="badge badge-sport" id="b-sport-4">🏋️ Sport</span>
+          <span class="badge badge-kcal">~2000 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="tacos-restes-mer">Tacos riz poulet <span class="meal-tag" id="tag-restes-mer">Restes mer.</span></div>
+            <div class="meal-kcal">~600 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name">Velouté Danone fruits + banane</div>
+            <div class="meal-kcal">~190 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="lentilles-jeu-soir">Lentilles corail riz curry <span class="meal-tag" id="tag-prep-ven">→ Ven. midi</span></div>
+            <div class="meal-kcal">~520 kcal · Sans viande 🌱</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENDREDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-vendredi">Vendredi</div>
+        <div class="day-badges">
+          <span class="badge badge-sport" id="b-sport-5">🏋️ Sport</span>
+          <span class="badge badge-kcal">~2000 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="lentilles-restes-jeu">Lentilles corail riz curry <span class="meal-tag" id="tag-restes-jeu">Restes jeu.</span></div>
+            <div class="meal-kcal">~520 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name">Velouté Danone fruits</div>
+            <div class="meal-kcal">~110 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="cheat-ven">Cheat meal 🎉 <span class="meal-tag cheat" id="tag-cheat">Libre</span></div>
+            <div class="meal-kcal">~600 kcal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAMEDI -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-samedi">Samedi</div>
+        <div class="day-badges">
+          <span class="badge badge-repos" id="b-repos-6">😴 Repos</span>
+          <span class="badge badge-kcal">~1800 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="yaourt-banane-sam">Œufs brouillés + pommes dauphine</div>
+            <div class="meal-kcal">~430 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name">Velouté Danone fruits</div>
+            <div class="meal-kcal">~110 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="pates-steak-sam">Pâtes steak haché tomate <span class="meal-tag" id="tag-prep-dim">→ Dim. midi</span></div>
+            <div class="meal-kcal">~580 kcal · Prépa 20 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIMANCHE -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name" id="d-dimanche">Dimanche</div>
+        <div class="day-badges">
+          <span class="badge badge-sport" id="b-sport-7">🏋️ Sport</span>
+          <span class="badge badge-kcal">~2000 kcal</span>
+        </div>
+      </div>
+      <div class="day-meals">
+        <div class="meal-row">
+          <div class="meal-slot">MATIN</div>
+          <div class="meal-detail">
+            <div class="meal-name">Belvita chocolat + banane</div>
+            <div class="meal-kcal">~320 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">MIDI</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="pates-steak-restes-sam">Pâtes steak haché tomate <span class="meal-tag" id="tag-restes-sam">Restes sam.</span></div>
+            <div class="meal-kcal">~580 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SNACK</div>
+          <div class="meal-detail">
+            <div class="meal-name">Velouté Danone fruits + banane</div>
+            <div class="meal-kcal">~190 kcal</div>
+          </div>
+        </div>
+        <div class="meal-row">
+          <div class="meal-slot">SOIR</div>
+          <div class="meal-detail">
+            <div class="meal-name" id="poulet-daup-dim-soir">Poulet + pommes dauphine <span class="meal-tag" id="tag-prep-lun">→ Lun. midi</span></div>
+            <div class="meal-kcal">~534 kcal · Prépa 20 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .week-grid -->
+</div>
+
+<!-- ═══ TAB 2: RECETTES ═══ -->
+<div class="tab-content" id="tab-recettes-content">
+  <div class="recipes-grid">
+
+    <!-- Pâtes poulet crème -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <div class="recipe-title" id="r1-title">🍝 Pâtes poulet crème</div>
+        <div class="recipe-meta" id="r1-meta">Lundi soir → Mardi midi · ~560 kcal/portion · 2 portions</div>
+      </div>
+      <div class="recipe-body">
+        <div>
+          <div class="recipe-section-title" id="rs-ingr">INGRÉDIENTS</div>
+          <ul class="ingr-list" id="r1-ingr">
+            <li>280 g de pâtes (pennes ou farfalles)</li>
+            <li>300 g de blanc de poulet</li>
+            <li>100 g de crème fraîche allégée</li>
+            <li>1 gousse d'ail, sel, poivre, herbes de Provence</li>
+          </ul>
+        </div>
+        <div>
+          <div class="recipe-section-title" id="rs-etapes">ÉTAPES</div>
+          <ol class="steps-list" id="r1-steps">
+            <li>Faire cuire les pâtes al dente (10 min)</li>
+            <li>Couper le poulet en dés, faire revenir à la poêle avec l'ail (7 min)</li>
+            <li>Ajouter la crème fraîche, sel, poivre, herbes — mijoter 3 min</li>
+            <li>Mélanger avec les pâtes égouttées</li>
+            <li>Conserver la moitié au frigo pour le lendemain midi</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poulet + pommes dauphine -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <div class="recipe-title" id="r2-title">🍗 Poulet + Pommes dauphine</div>
+        <div class="recipe-meta" id="r2-meta">Mar. soir → Mer. midi · ~534 kcal/portion · 2 portions</div>
+      </div>
+      <div class="recipe-body">
+        <div>
+          <div class="recipe-section-title">INGRÉDIENTS</div>
+          <ul class="ingr-list" id="r2-ingr">
+            <li>340 g de blanc de poulet (170 g/portion)</li>
+            <li>340 g de pommes dauphine Carrefour (170 g/portion)</li>
+            <li>Huile d'olive, ail, sel, poivre, paprika</li>
+          </ul>
+        </div>
+        <div>
+          <div class="recipe-section-title">ÉTAPES</div>
+          <ol class="steps-list" id="r2-steps">
+            <li>Préchauffer le four à 200°C</li>
+            <li>Étaler les pommes dauphine sur une plaque — cuire 20 min</li>
+            <li>Assaisonner le poulet (sel, poivre, paprika, ail)</li>
+            <li>Cuire le poulet à la poêle 8 min de chaque côté</li>
+            <li>Mettre la moitié de côté au frigo</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tacos riz poulet -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <div class="recipe-title" id="r3-title">🌮 Tacos riz poulet</div>
+        <div class="recipe-meta" id="r3-meta">Mercredi soir → Jeudi midi · ~600 kcal/portion · 2 portions</div>
+      </div>
+      <div class="recipe-body">
+        <div>
+          <div class="recipe-section-title">INGRÉDIENTS</div>
+          <ul class="ingr-list" id="r3-ingr">
+            <li>4 tortillas de blé</li>
+            <li>300 g de blanc de poulet</li>
+            <li>150 g de riz basmati (cru)</li>
+            <li>36 g de ketchup Heinz</li>
+            <li>24 g de fromage blanc 0%</li>
+            <li>2 tranches de cheddar</li>
+            <li>Sel, poivre, paprika, oignon en poudre</li>
+          </ul>
+        </div>
+        <div>
+          <div class="recipe-section-title">ÉTAPES</div>
+          <ol class="steps-list" id="r3-steps">
+            <li>Faire cuire le riz (12 min)</li>
+            <li>Couper le poulet en lanières, assaisonner et cuire à la poêle (8 min)</li>
+            <li>Garnir les tortillas : riz, poulet, ketchup, fromage blanc</li>
+            <li>Ajouter cheddar, fermer et réchauffer 1 min à la poêle</li>
+            <li>Garder 2 tacos au frigo pour le lendemain</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lentilles corail -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <div class="recipe-title" id="r4-title">🌱 Lentilles corail riz curry</div>
+        <div class="recipe-meta" id="r4-meta">Jeudi soir → Vendredi midi · ~520 kcal/portion · 2 portions · Sans viande</div>
+      </div>
+      <div class="recipe-body">
+        <div>
+          <div class="recipe-section-title">INGRÉDIENTS</div>
+          <ul class="ingr-list" id="r4-ingr">
+            <li>200 g de lentilles corail</li>
+            <li>150 g de riz basmati (cru)</li>
+            <li>400 ml de lait de coco allégé</li>
+            <li>1 c.à.s de curry en poudre</li>
+            <li>1 oignon, 1 gousse d'ail, sel, poivre</li>
+            <li>1 c.à.s d'huile d'olive</li>
+          </ul>
+        </div>
+        <div>
+          <div class="recipe-section-title">ÉTAPES</div>
+          <ol class="steps-list" id="r4-steps">
+            <li>Faire revenir l'oignon et l'ail hachés dans l'huile (3 min)</li>
+            <li>Ajouter les lentilles, le curry et le lait de coco</li>
+            <li>Laisser mijoter 20 min jusqu'à absorption</li>
+            <li>Cuire le riz séparément (12 min)</li>
+            <li>Servir et réserver la moitié pour le lendemain</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pâtes steak haché -->
+    <div class="recipe-card">
+      <div class="recipe-header">
+        <div class="recipe-title" id="r5-title">🥩 Pâtes steak haché tomate</div>
+        <div class="recipe-meta" id="r5-meta">Samedi soir → Dimanche midi · ~580 kcal/portion · 2 portions</div>
+      </div>
+      <div class="recipe-body">
+        <div>
+          <div class="recipe-section-title">INGRÉDIENTS</div>
+          <ul class="ingr-list" id="r5-ingr">
+            <li>280 g de pâtes</li>
+            <li>2 steaks hachés 5% MG (250 g)</li>
+            <li>200 g de coulis de tomate</li>
+            <li>Ail, oignon, sel, poivre, herbes italiennes</li>
+          </ul>
+        </div>
+        <div>
+          <div class="recipe-section-title">ÉTAPES</div>
+          <ol class="steps-list" id="r5-steps">
+            <li>Faire cuire les pâtes (10 min)</li>
+            <li>Émietter les steaks dans une poêle chaude, cuire 5 min</li>
+            <li>Ajouter l'ail, l'oignon, le coulis — mijoter 10 min</li>
+            <li>Mélanger avec les pâtes égouttées</li>
+            <li>Réserver la moitié au frigo pour dimanche midi</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .recipes-grid -->
+</div>
+
+<!-- ═══ TAB 3: COURSES ═══ -->
+<div class="tab-content" id="tab-courses-content">
+  <div class="shopping-header">
+    <div class="progress-bar-wrap">
+      <div class="progress-label" id="prog-label">0 / 28 articles cochés</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <button class="reset-btn" onclick="resetAll()" id="reset-btn-text">↺ Tout décocher</button>
+  </div>
+
+  <div class="shop-categories">
+
+    <div class="shop-category">
+      <div class="shop-cat-header" id="cat-proteines">🥩 PROTÉINES</div>
+      <div class="shop-items">
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Blanc de poulet</span><span class="shop-item-qty">~1,5 kg</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Steak haché 5% MG</span><span class="shop-item-qty">250 g (×2)</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Velouté Danone fruits (16 pots)</span><span class="shop-item-qty">1 pack 16×125g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Œufs</span><span class="shop-item-qty">×6</span></label>
+      </div>
+    </div>
+
+    <div class="shop-category">
+      <div class="shop-cat-header" id="cat-glucides">🍞 GLUCIDES / FÉCULENTS</div>
+      <div class="shop-items">
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Pâtes (pennes ou farfalles)</span><span class="shop-item-qty">500 g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Riz basmati</span><span class="shop-item-qty">500 g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Pommes dauphine Carrefour</span><span class="shop-item-qty">680 g (×2)</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Tortillas de blé</span><span class="shop-item-qty">1 paquet (8 pièces)</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Lentilles corail</span><span class="shop-item-qty">200 g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Belvita chocolat</span><span class="shop-item-qty">×7 sachets</span></label>
+      </div>
+    </div>
+
+    <div class="shop-category">
+      <div class="shop-cat-header" id="cat-laitiers">🥛 PRODUITS LAITIERS</div>
+      <div class="shop-items">
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Crème fraîche allégée</span><span class="shop-item-qty">200 ml</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Fromage blanc 0%</span><span class="shop-item-qty">200 g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Cheddar tranches</span><span class="shop-item-qty">2 tranches</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Lait de coco allégé</span><span class="shop-item-qty">400 ml</span></label>
+      </div>
+    </div>
+
+    <div class="shop-category">
+      <div class="shop-cat-header" id="cat-fruits">🍌 FRUITS / LÉGUMES</div>
+      <div class="shop-items">
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Bananes</span><span class="shop-item-qty">×7</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Oignons</span><span class="shop-item-qty">×2</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Ail (tête)</span><span class="shop-item-qty">×1</span></label>
+      </div>
+    </div>
+
+    <div class="shop-category">
+      <div class="shop-cat-header" id="cat-condiments">🧂 CONDIMENTS / ÉPICES</div>
+      <div class="shop-items">
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Ketchup Heinz</span><span class="shop-item-qty">1 bouteille</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Coulis de tomate</span><span class="shop-item-qty">200 g</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Curry en poudre</span><span class="shop-item-qty">1 bocal</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Paprika</span><span class="shop-item-qty">1 bocal</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Herbes de Provence</span><span class="shop-item-qty">1 bocal</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Herbes italiennes</span><span class="shop-item-qty">1 bocal</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Huile d'olive</span><span class="shop-item-qty">1 bouteille</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Sel, poivre</span><span class="shop-item-qty">si besoin</span></label>
+        <label class="shop-item"><input type="checkbox" onchange="updateProgress()"><span class="shop-item-text">Oignon en poudre</span><span class="shop-item-qty">1 bocal</span></label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── LANGUAGE DATA ──
+const T = {
+  fr: {
+    'h-title': '🥗 Plan Nutrition',
+    'h-sub': 'Semaine — Mathulan · Objectif 85 kg',
+    'tab-menus': '📅 Menus semaine',
+    'tab-recettes': '👨‍🍳 Recettes soir',
+    'tab-courses': '🛒 Courses',
+    'd-lundi': 'Lundi', 'd-mardi': 'Mardi', 'd-mercredi': 'Mercredi',
+    'd-jeudi': 'Jeudi', 'd-vendredi': 'Vendredi', 'd-samedi': 'Samedi', 'd-dimanche': 'Dimanche',
+    'b-sport-1': '🏋️ Sport', 'b-sport-3': '🏋️ Sport', 'b-sport-4': '🏋️ Sport',
+    'b-sport-5': '🏋️ Sport', 'b-sport-7': '🏋️ Sport',
+    'b-repos-2': '😴 Repos', 'b-repos-6': '😴 Repos',
+    'm-matin': 'MATIN', 'm-midi': 'MIDI', 'm-snack': 'SNACK', 'm-soir': 'SOIR',
+    'belvita-banane-1': 'Belvita chocolat + banane',
+    'tacos-restes-dim': 'Tacos poulet + pommes dauphine',
+    'tag-restes-dim': 'Restes dim.', 'tag-restes-lun': 'Restes lun.', 'tag-restes-mar': 'Restes mar.',
+    'tag-restes-mer': 'Restes mer.', 'tag-restes-jeu': 'Restes jeu.', 'tag-restes-sam': 'Restes sam.',
+    'tag-prep-mar': '→ Mardi midi', 'tag-prep-mer': '→ Mer. midi', 'tag-prep-jeu': '→ Jeu. midi',
+    'tag-prep-ven': '→ Ven. midi', 'tag-prep-dim': '→ Dim. midi', 'tag-prep-lun': '→ Lun. midi',
+    'tag-cheat': 'Libre',
+    'yaourt-snack': 'Velouté Danone fruits', 'yaourt-banane-snack': 'Velouté Danone fruits + banane',
+    'pates-poulet-soir': 'Pâtes poulet crème', 'pates-restes-lun': 'Pâtes poulet crème',
+    'poulet-daup-mar': 'Poulet + pommes dauphine', 'poulet-daup-restes-mar': 'Poulet + pommes dauphine',
+    'tacos-mer-soir': 'Tacos riz poulet', 'tacos-restes-mer': 'Tacos riz poulet',
+    'lentilles-jeu-soir': 'Lentilles corail riz curry', 'lentilles-restes-jeu': 'Lentilles corail riz curry',
+    'cheat-ven': 'Cheat meal 🎉', 'yaourt-banane-sam': 'Œufs brouillés + pommes dauphine',
+    'pates-steak-sam': 'Pâtes steak haché tomate', 'pates-steak-restes-sam': 'Pâtes steak haché tomate',
+    'poulet-daup-dim-soir': 'Poulet + pommes dauphine',
+    'r1-title': '🍝 Pâtes poulet crème', 'r1-meta': 'Lundi soir → Mardi midi · ~560 kcal/portion · 2 portions',
+    'r2-title': '🍗 Poulet + Pommes dauphine', 'r2-meta': 'Mar. soir → Mer. midi · ~534 kcal/portion · 2 portions',
+    'r3-title': '🌮 Tacos riz poulet', 'r3-meta': 'Mercredi soir → Jeudi midi · ~600 kcal/portion · 2 portions',
+    'r4-title': '🌱 Lentilles corail riz curry', 'r4-meta': 'Jeudi soir → Vendredi midi · ~520 kcal/portion · 2 portions · Sans viande',
+    'r5-title': '🥩 Pâtes steak haché tomate', 'r5-meta': 'Samedi soir → Dimanche midi · ~580 kcal/portion · 2 portions',
+    'rs-ingr': 'INGRÉDIENTS', 'rs-etapes': 'ÉTAPES',
+    'cat-proteines': '🥩 PROTÉINES', 'cat-glucides': '🍞 GLUCIDES / FÉCULENTS',
+    'cat-laitiers': '🥛 PRODUITS LAITIERS', 'cat-fruits': '🍌 FRUITS / LÉGUMES',
+    'cat-condiments': '🧂 CONDIMENTS / ÉPICES',
+    'reset-btn-text': '↺ Tout décocher',
+  },
+  en: {
+    'h-title': '🥗 Nutrition Plan',
+    'h-sub': 'Week — Mathulan · Goal 85 kg',
+    'tab-menus': '📅 Weekly Menus',
+    'tab-recettes': '👨‍🍳 Evening Recipes',
+    'tab-courses': '🛒 Shopping List',
+    'd-lundi': 'Monday', 'd-mardi': 'Tuesday', 'd-mercredi': 'Wednesday',
+    'd-jeudi': 'Thursday', 'd-vendredi': 'Friday', 'd-samedi': 'Saturday', 'd-dimanche': 'Sunday',
+    'b-sport-1': '🏋️ Training', 'b-sport-3': '🏋️ Training', 'b-sport-4': '🏋️ Training',
+    'b-sport-5': '🏋️ Training', 'b-sport-7': '🏋️ Training',
+    'b-repos-2': '😴 Rest', 'b-repos-6': '😴 Rest',
+    'm-matin': 'MORNING', 'm-midi': 'LUNCH', 'm-snack': 'SNACK', 'm-soir': 'DINNER',
+    'belvita-banane-1': 'Chocolate Belvita + banana',
+    'tacos-restes-dim': 'Chicken tacos + potato puffs',
+    'tag-restes-dim': 'Sun. leftovers', 'tag-restes-lun': 'Mon. leftovers', 'tag-restes-mar': 'Tue. leftovers',
+    'tag-restes-mer': 'Wed. leftovers', 'tag-restes-jeu': 'Thu. leftovers', 'tag-restes-sam': 'Sat. leftovers',
+    'tag-prep-mar': '→ Tue. lunch', 'tag-prep-mer': '→ Wed. lunch', 'tag-prep-jeu': '→ Thu. lunch',
+    'tag-prep-ven': '→ Fri. lunch', 'tag-prep-dim': '→ Sun. lunch', 'tag-prep-lun': '→ Mon. lunch',
+    'tag-cheat': 'Free',
+    'yaourt-snack': 'Danone Velouté fruit yoghurt', 'yaourt-banane-snack': 'Danone Velouté + banana',
+    'pates-poulet-soir': 'Pasta chicken cream', 'pates-restes-lun': 'Pasta chicken cream',
+    'poulet-daup-mar': 'Chicken + potato puffs', 'poulet-daup-restes-mar': 'Chicken + potato puffs',
+    'tacos-mer-soir': 'Rice chicken tacos', 'tacos-restes-mer': 'Rice chicken tacos',
+    'lentilles-jeu-soir': 'Red lentils rice curry', 'lentilles-restes-jeu': 'Red lentils rice curry',
+    'cheat-ven': 'Cheat meal 🎉', 'yaourt-banane-sam': 'Scrambled eggs + potato puffs',
+    'pates-steak-sam': 'Pasta minced beef tomato', 'pates-steak-restes-sam': 'Pasta minced beef tomato',
+    'poulet-daup-dim-soir': 'Chicken + potato puffs',
+    'r1-title': '🍝 Pasta Chicken Cream', 'r1-meta': 'Monday dinner → Tuesday lunch · ~560 kcal/serving · 2 servings',
+    'r2-title': '🍗 Chicken + Potato Puffs', 'r2-meta': 'Tue. dinner → Wed. lunch · ~534 kcal/serving · 2 servings',
+    'r3-title': '🌮 Rice Chicken Tacos', 'r3-meta': 'Wednesday dinner → Thursday lunch · ~600 kcal/serving · 2 servings',
+    'r4-title': '🌱 Red Lentils Rice Curry', 'r4-meta': 'Thursday dinner → Friday lunch · ~520 kcal/serving · 2 servings · Meat-free',
+    'r5-title': '🥩 Pasta Minced Beef Tomato', 'r5-meta': 'Saturday dinner → Sunday lunch · ~580 kcal/serving · 2 servings',
+    'rs-ingr': 'INGREDIENTS', 'rs-etapes': 'STEPS',
+    'cat-proteines': '🥩 PROTEINS', 'cat-glucides': '🍞 CARBS / STARCHES',
+    'cat-laitiers': '🥛 DAIRY', 'cat-fruits': '🍌 FRUITS / VEGGIES',
+    'cat-condiments': '🧂 CONDIMENTS / SPICES',
+    'reset-btn-text': '↺ Uncheck all',
+  },
+  ta: {
+    'h-title': '🥗 உணவு திட்டம்',
+    'h-sub': 'வாரம் — மதுலன் · இலக்கு 85 கிலோ',
+    'tab-menus': '📅 வார உணவுகள்',
+    'tab-recettes': '👨‍🍳 இரவு சமைப்பு',
+    'tab-courses': '🛒 கடை பட்டியல்',
+    'd-lundi': 'திங்கள்', 'd-mardi': 'செவ்வாய்', 'd-mercredi': 'புதன்',
+    'd-jeudi': 'வியாழன்', 'd-vendredi': 'வெள்ளி', 'd-samedi': 'சனி', 'd-dimanche': 'ஞாயிறு',
+    'b-sport-1': '🏋️ உடற்பயிற்சி', 'b-sport-3': '🏋️ உடற்பயிற்சி', 'b-sport-4': '🏋️ உடற்பயிற்சி',
+    'b-sport-5': '🏋️ உடற்பயிற்சி', 'b-sport-7': '🏋️ உடற்பயிற்சி',
+    'b-repos-2': '😴 ஓய்வு', 'b-repos-6': '😴 ஓய்வு',
+    'm-matin': 'காலை', 'm-midi': 'மதியம்', 'm-snack': 'சிற்றுண்டி', 'm-soir': 'இரவு',
+    'belvita-banane-1': 'சாக்லேட் Belvita + வாழைப்பழம்',
+    'tacos-restes-dim': 'கோழி tacos + உருளைக்கிழங்கு',
+    'tag-restes-dim': 'ஞாயிறு மீதம்', 'tag-restes-lun': 'திங்கள் மீதம்', 'tag-restes-mar': 'செவ்வாய் மீதம்',
+    'tag-restes-mer': 'புதன் மீதம்', 'tag-restes-jeu': 'வியாழன் மீதம்', 'tag-restes-sam': 'சனி மீதம்',
+    'tag-prep-mar': '→ செவ்வாய் மதியம்', 'tag-prep-mer': '→ புதன் மதியம்', 'tag-prep-jeu': '→ வியாழன் மதியம்',
+    'tag-prep-ven': '→ வெள்ளி மதியம்', 'tag-prep-dim': '→ ஞாயிறு மதியம்', 'tag-prep-lun': '→ திங்கள் மதியம்',
+    'tag-cheat': 'சுதந்திரம்',
+    'yaourt-snack': 'Danone Velouté பழம்', 'yaourt-banane-snack': 'Danone Velouté + வாழைப்பழம்',
+    'pates-poulet-soir': 'பாஸ்தா கோழி கிரீம்', 'pates-restes-lun': 'பாஸ்தா கோழி கிரீம்',
+    'poulet-daup-mar': 'கோழி + உருளைக்கிழங்கு', 'poulet-daup-restes-mar': 'கோழி + உருளைக்கிழங்கு',
+    'tacos-mer-soir': 'சாதம் கோழி tacos', 'tacos-restes-mer': 'சாதம் கோழி tacos',
+    'lentilles-jeu-soir': 'சிவப்பு பருப்பு சாதம் கறி', 'lentilles-restes-jeu': 'சிவப்பு பருப்பு சாதம் கறி',
+    'cheat-ven': 'சீட் மீல் 🎉', 'yaourt-banane-sam': 'முட்டை + உருளைக்கிழங்கு',
+    'pates-steak-sam': 'பாஸ்தா மாட்டிறைச்சி தக்காளி', 'pates-steak-restes-sam': 'பாஸ்தா மாட்டிறைச்சி தக்காளி',
+    'poulet-daup-dim-soir': 'கோழி + உருளைக்கிழங்கு',
+    'r1-title': '🍝 பாஸ்தா கோழி கிரீம்', 'r1-meta': 'திங்கள் இரவு → செவ்வாய் மதியம் · ~560 kcal/பகுதி · 2 பகுதிகள்',
+    'r2-title': '🍗 கோழி + உருளைக்கிழங்கு', 'r2-meta': 'செவ்வாய் இரவு → புதன் மதியம் · ~534 kcal/பகுதி · 2 பகுதிகள்',
+    'r3-title': '🌮 சாதம் கோழி Tacos', 'r3-meta': 'புதன் இரவு → வியாழன் மதியம் · ~600 kcal/பகுதி · 2 பகுதிகள்',
+    'r4-title': '🌱 சிவப்பு பருப்பு சாதம் கறி', 'r4-meta': 'வியாழன் இரவு → வெள்ளி மதியம் · ~520 kcal/பகுதி · 2 பகுதிகள் · இறைச்சியில்லாமல்',
+    'r5-title': '🥩 பாஸ்தா மாட்டிறைச்சி தக்காளி', 'r5-meta': 'சனி இரவு → ஞாயிறு மதியம் · ~580 kcal/பகுதி · 2 பகுதிகள்',
+    'rs-ingr': 'பொருட்கள்', 'rs-etapes': 'படிகள்',
+    'cat-proteines': '🥩 புரதம்', 'cat-glucides': '🍞 கார்போஹைட்ரேட்',
+    'cat-laitiers': '🥛 பால் பொருட்கள்', 'cat-fruits': '🍌 பழங்கள் / காய்கறிகள்',
+    'cat-condiments': '🧂 மசாலா / சாஸ்',
+    'reset-btn-text': '↺ அனைத்தும் நீக்கு',
+  }
+};
+
+// Recipe ingredient/steps translations
+const RECIPE_CONTENT = {
+  fr: {
+    r1: {
+      ingr: ['280 g de pâtes (pennes ou farfalles)', '300 g de blanc de poulet', '100 g de crème fraîche allégée', '1 gousse d\'ail, sel, poivre, herbes de Provence'],
+      steps: ['Faire cuire les pâtes al dente (10 min)', 'Couper le poulet en dés, faire revenir à la poêle avec l\'ail (7 min)', 'Ajouter la crème fraîche, sel, poivre, herbes — mijoter 3 min', 'Mélanger avec les pâtes égouttées', 'Conserver la moitié au frigo pour le lendemain midi']
+    },
+    r2: {
+      ingr: ['340 g de blanc de poulet (170 g/portion)', '340 g de pommes dauphine Carrefour (170 g/portion)', 'Huile d\'olive, ail, sel, poivre, paprika'],
+      steps: ['Préchauffer le four à 200°C', 'Étaler les pommes dauphine sur une plaque — cuire 20 min', 'Assaisonner le poulet (sel, poivre, paprika, ail)', 'Cuire le poulet à la poêle 8 min de chaque côté', 'Mettre la moitié de côté au frigo']
+    },
+    r3: {
+      ingr: ['4 tortillas de blé', '300 g de blanc de poulet', '150 g de riz basmati (cru)', '36 g de ketchup Heinz', '24 g de fromage blanc 0%', '2 tranches de cheddar', 'Sel, poivre, paprika, oignon en poudre'],
+      steps: ['Faire cuire le riz (12 min)', 'Couper le poulet en lanières, assaisonner et cuire à la poêle (8 min)', 'Garnir les tortillas : riz, poulet, ketchup, fromage blanc', 'Ajouter cheddar, fermer et réchauffer 1 min à la poêle', 'Garder 2 tacos au frigo pour le lendemain']
+    },
+    r4: {
+      ingr: ['200 g de lentilles corail', '150 g de riz basmati (cru)', '400 ml de lait de coco allégé', '1 c.à.s de curry en poudre', '1 oignon, 1 gousse d\'ail, sel, poivre', '1 c.à.s d\'huile d\'olive'],
+      steps: ['Faire revenir l\'oignon et l\'ail hachés dans l\'huile (3 min)', 'Ajouter les lentilles, le curry et le lait de coco', 'Laisser mijoter 20 min jusqu\'à absorption', 'Cuire le riz séparément (12 min)', 'Servir et réserver la moitié pour le lendemain']
+    },
+    r5: {
+      ingr: ['280 g de pâtes', '2 steaks hachés 5% MG (250 g)', '200 g de coulis de tomate', 'Ail, oignon, sel, poivre, herbes italiennes'],
+      steps: ['Faire cuire les pâtes (10 min)', 'Émietter les steaks dans une poêle chaude, cuire 5 min', 'Ajouter l\'ail, l\'oignon, le coulis — mijoter 10 min', 'Mélanger avec les pâtes égouttées', 'Réserver la moitié au frigo pour dimanche midi']
+    }
+  },
+  en: {
+    r1: {
+      ingr: ['280 g pasta (penne or farfalle)', '300 g chicken breast', '100 g light crème fraîche', '1 garlic clove, salt, pepper, herbes de Provence'],
+      steps: ['Cook pasta al dente (10 min)', 'Dice chicken, sauté in pan with garlic (7 min)', 'Add crème fraîche, salt, pepper, herbs — simmer 3 min', 'Toss with drained pasta', 'Save half in fridge for next day\'s lunch']
+    },
+    r2: {
+      ingr: ['340 g chicken breast (170 g/serving)', '340 g Carrefour potato puffs (170 g/serving)', 'Olive oil, garlic, salt, pepper, paprika'],
+      steps: ['Preheat oven to 200°C', 'Spread potato puffs on tray — bake 20 min', 'Season chicken (salt, pepper, paprika, garlic)', 'Cook chicken in pan 8 min each side', 'Set half aside in fridge']
+    },
+    r3: {
+      ingr: ['4 wheat tortillas', '300 g chicken breast', '150 g basmati rice (raw)', '36 g Heinz ketchup', '24 g low-fat fromage blanc', '2 cheddar slices', 'Salt, pepper, paprika, onion powder'],
+      steps: ['Cook rice (12 min)', 'Slice chicken in strips, season and pan-fry (8 min)', 'Fill tortillas: rice, chicken, ketchup, fromage blanc', 'Add cheddar, fold and warm 1 min in pan', 'Keep 2 tacos in fridge for next day']
+    },
+    r4: {
+      ingr: ['200 g red lentils', '150 g basmati rice (raw)', '400 ml light coconut milk', '1 tbsp curry powder', '1 onion, 1 garlic clove, salt, pepper', '1 tbsp olive oil'],
+      steps: ['Sauté chopped onion and garlic in oil (3 min)', 'Add lentils, curry and coconut milk', 'Simmer 20 min until absorbed', 'Cook rice separately (12 min)', 'Serve and set half aside for next day']
+    },
+    r5: {
+      ingr: ['280 g pasta', '2 lean beef patties 5% fat (250 g)', '200 g tomato passata', 'Garlic, onion, salt, pepper, Italian herbs'],
+      steps: ['Cook pasta (10 min)', 'Crumble beef in hot pan, cook 5 min', 'Add garlic, onion, passata — simmer 10 min', 'Toss with drained pasta', 'Save half in fridge for Sunday lunch']
+    }
+  },
+  ta: {
+    r1: {
+      ingr: ['280 கிரா பாஸ்தா', '300 கிரா கோழி மார்பு', '100 கிரா கிரீம் பிரேஷ்', '1 பூண்டு, உப்பு, மிளகு, மூலிகைகள்'],
+      steps: ['பாஸ்தாவை 10 நிமிடம் சமைக்கவும்', 'கோழியை சிறு துண்டுகளாக வெட்டி வதக்கவும் (7 நிமிடம்)', 'கிரீம், உப்பு, மிளகு, மூலிகைகள் சேர்க்கவும்', 'பாஸ்தாவுடன் கலக்கவும்', 'பாதியை மறுநாள் மதியத்திற்கு ஃபிரிட்ஜில் வையுங்கள்']
+    },
+    r2: {
+      ingr: ['340 கிரா கோழி மார்பு (170 கிரா/பகுதி)', '340 கிரா உருளைக்கிழங்கு (170 கிரா/பகுதி)', 'ஆலிவ் எண்ணெய், பூண்டு, உப்பு, மிளகு, பப்ரிக்கா'],
+      steps: ['அடுப்பை 200°C-ல் சூடாக்கவும்', 'உருளைக்கிழங்கை ட்ரேயில் வைத்து 20 நிமிடம் சுடவும்', 'கோழியை மசாலாவில் தேய்க்கவும்', 'கோழியை வாணலியில் 8 நிமிடம் சமைக்கவும்', 'பாதியை ஃபிரிட்ஜில் வையுங்கள்']
+    },
+    r3: {
+      ingr: ['4 கோதுமை tortillas', '300 கிரா கோழி மார்பு', '150 கிரா பாஸ்மதி அரிசி', '36 கிரா கெட்சப்', '24 கிரா தயிர் 0%', '2 செடார் துண்டுகள்', 'உப்பு, மிளகு, பப்ரிக்கா, வெங்காயத்தூள்'],
+      steps: ['அரிசியை சமைக்கவும் (12 நிமிடம்)', 'கோழியை நீண்ட துண்டுகளாக வெட்டி சமைக்கவும் (8 நிமிடம்)', 'Tortilla-ல் நிரப்பவும்: அரிசி, கோழி, கெட்சப், தயிர்', 'செடார் சேர்த்து 1 நிமிடம் சூடாக்கவும்', '2 tacos-ஐ ஃபிரிட்ஜில் வையுங்கள்']
+    },
+    r4: {
+      ingr: ['200 கிரா சிவப்பு பருப்பு', '150 கிரா பாஸ்மதி அரிசி', '400 மில்லி தேங்காய் பால்', '1 டேப்பிள்ஸ்பூன் கறி தூள்', '1 வெங்காயம், 1 பூண்டு, உப்பு, மிளகு', '1 டேப்பிள்ஸ்பூன் ஆலிவ் எண்ணெய்'],
+      steps: ['வெங்காயம், பூண்டை வதக்கவும் (3 நிமிடம்)', 'பருப்பு, கறி, தேங்காய் பால் சேர்க்கவும்', '20 நிமிடம் மெதுவாக சமைக்கவும்', 'அரிசியை தனியாக சமைக்கவும் (12 நிமிடம்)', 'பாதியை மறுநாளுக்கு வையுங்கள்']
+    },
+    r5: {
+      ingr: ['280 கிரா பாஸ்தா', '2 மாட்டிறைச்சி பாட்டிகள் 5% கொழுப்பு (250 கிரா)', '200 கிரா தக்காளி கூழ்', 'பூண்டு, வெங்காயம், உப்பு, மிளகு, இத்தாலிய மூலிகைகள்'],
+      steps: ['பாஸ்தாவை சமைக்கவும் (10 நிமிடம்)', 'இறைச்சியை சூடான வாணலியில் 5 நிமிடம் சமைக்கவும்', 'பூண்டு, வெங்காயம், தக்காளி சேர்க்கவும் — 10 நிமிடம் மிதமாக கொதிக்கவும்', 'பாஸ்தாவுடன் கலக்கவும்', 'பாதியை ஞாயிறு மதியத்திற்கு ஃபிரிட்ஜில் வையுங்கள்']
+    }
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+
+  const dict = T[lang];
+  for (const [id, val] of Object.entries(dict)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
+
+  // Update recipe content
+  const rc = RECIPE_CONTENT[lang];
+  for (const key of ['r1','r2','r3','r4','r5']) {
+    const ingrEl = document.getElementById(key + '-ingr');
+    const stepsEl = document.getElementById(key + '-steps');
+    if (ingrEl && rc[key]) {
+      ingrEl.innerHTML = rc[key].ingr.map(i => `<li>${i}</li>`).join('');
+    }
+    if (stepsEl && rc[key]) {
+      stepsEl.innerHTML = rc[key].steps.map(s => `<li>${s}</li>`).join('');
+    }
+  }
+
+  updateProgress();
+  try { localStorage.setItem('nutrition-lang', lang); } catch(e){}
+}
+
+// ── TABS ──
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id + '-content').classList.add('active');
+  btn.classList.add('active');
+  try { localStorage.setItem('nutrition-tab', id); } catch(e){}
+}
+
+// ── PROGRESS ──
+function updateProgress() {
+  const checks = document.querySelectorAll('#tab-courses-content input[type="checkbox"]');
+  const total = checks.length;
+  let done = 0;
+  checks.forEach(cb => {
+    const item = cb.closest('.shop-item');
+    if (cb.checked) { done++; item.classList.add('checked'); }
+    else { item.classList.remove('checked'); }
+  });
+  const pct = total ? Math.round(done / total * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  const labels = {
+    fr: `${done} / ${total} articles cochés`,
+    en: `${done} / ${total} items checked`,
+    ta: `${done} / ${total} பொருட்கள் தேர்ந்தெடுக்கப்பட்டது`
+  };
+  document.getElementById('prog-label').textContent = labels[currentLang] || labels.fr;
+  try { localStorage.setItem('nutrition-checks', JSON.stringify([...checks].map(c => c.checked))); } catch(e){}
+}
+
+function resetAll() {
+  document.querySelectorAll('#tab-courses-content input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+  updateProgress();
+}
+
+// ── RESTORE STATE ──
+try {
+  const savedLang = localStorage.getItem('nutrition-lang');
+  if (savedLang && T[savedLang]) { setLang(savedLang); }
+
+  const savedTab = localStorage.getItem('nutrition-tab');
+  if (savedTab) {
+    const btn = document.querySelector(`[onclick="showTab('${savedTab}',this)"]`);
+    if (btn) showTab(savedTab, btn);
+  }
+
+  const savedChecks = JSON.parse(localStorage.getItem('nutrition-checks') || 'null');
+  if (savedChecks) {
+    const cbs = document.querySelectorAll('#tab-courses-content input[type="checkbox"]');
+    savedChecks.forEach((v, i) => { if (cbs[i]) cbs[i].checked = v; });
+    updateProgress();
+  }
+} catch(e){}
+</script>
+
+</body></html>
